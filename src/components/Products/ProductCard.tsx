@@ -27,7 +27,9 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+
     if (!user) {
       navigate('/login');
       return;
@@ -46,7 +48,10 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <>
-      <div className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <button
+        onClick={() => navigate(`/product/${product.id}`)}
+        className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left w-full"
+      >
         <div className="relative overflow-hidden h-64">
           <img
             src={product.image_url || 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80'}
@@ -95,7 +100,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <p className="text-xs text-stone-500">{product.stock_count} in stock</p>
         </div>
-      </div>
+      </button>
 
       {showToast && <Toast message={toastMessage} type="success" onClose={() => setShowToast(false)} />}
     </>

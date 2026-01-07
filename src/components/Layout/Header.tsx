@@ -50,22 +50,23 @@ export default function Header() {
                   </Link>
                 )}
 
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 px-3 py-1 bg-stone-100 rounded-full">
-                    <User className="w-4 h-4 text-stone-600" />
-                    <span className="text-sm font-medium text-stone-700 hidden sm:inline">
-                      {user.full_name || user.email}
-                    </span>
-                  </div>
+                <Link
+                  to="/user-dashboard"
+                  className="flex items-center gap-2 px-3 py-1 bg-stone-100 rounded-full hover:bg-stone-200 transition-colors"
+                >
+                  <User className="w-4 h-4 text-stone-600" />
+                  <span className="text-sm font-medium text-stone-700 hidden sm:inline">
+                    {user.full_name || user.email}
+                  </span>
+                </Link>
 
-                  <button
-                    onClick={handleSignOut}
-                    className="text-stone-600 hover:text-stone-800 transition-colors"
-                    title="Sign Out"
-                  >
-                    <LogOut className="w-5 h-5" />
-                  </button>
-                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                  title="Sign Out"
+                >
+                  <LogOut className="w-5 h-5" />
+                </button>
               </>
             ) : (
               <>
