@@ -14,7 +14,43 @@
     }
   }
 
+  @keyframes slide-in-from-bottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   .animate-slide-in {
     animation: slide-in 0.3s ease-out;
+  }
+
+  .animate-in {
+    animation: slide-in-from-bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide-in-from-bottom {
+    animation: slide-in-from-bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(120, 113, 108, 0.3);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 113, 108, 0.5);
   }
 }
